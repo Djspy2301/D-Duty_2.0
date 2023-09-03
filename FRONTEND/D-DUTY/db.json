@@ -1,6 +1,12 @@
 {
   "user": [
-    
+    {
+      "id": "aadi",
+      "org": "OverdoseGaming",
+      "name": "Adit",
+      "password": "123456",
+      "email": "adit@2301",
+      "role": "Admin"
+    }
   ]
-  
 }

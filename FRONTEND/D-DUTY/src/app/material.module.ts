@@ -10,6 +10,8 @@ import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatSortModule } from '@angular/material/sort'
 import { MatDialogModule } from '@angular/material/dialog'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     exports: [
@@ -24,6 +26,8 @@ import { MatDialogModule } from '@angular/material/dialog'
         MatPaginatorModule,
         MatSortModule,
         MatDialogModule,
+        MatFormFieldModule,
+        FormsModule,
     ]
 })
 export class MaterialModule{
