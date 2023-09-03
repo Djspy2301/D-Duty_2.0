@@ -1,0 +1,32 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+#wild-content{
+    width: 50%;
+    margin: auto;
+    -webkit-box-shadow: 5px 13px 22px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 13px 22px -2px rgba(0,0,0,0.75);
+    box-shadow: 5px 13px 22px -2px rgba(0,0,0,0.75);
+}
+
+#wild-card{
+    
+    height: 100vh;
+}
+
+.btn{
+    width: 30%;
+    margin: 30px 50px
+}

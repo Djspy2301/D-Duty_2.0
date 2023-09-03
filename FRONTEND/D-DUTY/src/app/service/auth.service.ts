@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   }
 
   getByCode(code: any) {
-    return this.http.get(this.apiUrl + '/' + code);
+    return this.http.get(this.apiUrl + '/' + code)
   }
 
   proceedreg(inputData: any) {
@@ -24,4 +25,5 @@ export class AuthService {
   updateUser(code: any, inputData: any) {
     return this.http.post(this.apiUrl + '/' + code, inputData);
   }
+
 }
