@@ -14,6 +14,8 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminHeaderComponent } from './admin-layout/admin-header/admin-header.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { UserHeaderComponent } from './user-layout/user-header/user-header.component';
+import { UserDashboardComponent } from './user-layout/user-dashboard/user-dashboard.component';
+import { AdminDashboardComponent } from './admin-layout/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,10 @@ import { UserHeaderComponent } from './user-layout/user-header/user-header.compo
     LoginComponent,
     AdminLayoutComponent,
     AdminHeaderComponent,
+    AdminDashboardComponent,
     UserLayoutComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
