@@ -3,7 +3,7 @@
     <span class="spacer"></span>
     <button mat-button routerLink="/">user-Profile</button>
     <button mat-button routerLink="/register">Dashboard</button>
-    <button mat-button>Logout</button>
+    <button (click)="logout()" mat-button>Logout</button>
   </mat-toolbar>
   
   <div class="content" style="width: 100%; display: block;" role="main">
