@@ -8,3 +8,7 @@ mat-toolbar {
     flex: 1;
   }
   
+  img{
+    width: 60px;
+    height: 50px;
+  }

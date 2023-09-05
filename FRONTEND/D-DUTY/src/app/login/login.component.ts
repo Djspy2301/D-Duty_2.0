@@ -27,7 +27,9 @@ export class LoginComponent {
         console.log(this.userData);
         if (this.userData.password === this.loginForm.value.password) {
           sessionStorage.setItem('username', this.userData.id);
+          sessionStorage.setItem('name', this.userData.name);
           sessionStorage.setItem('role', this.userData.role);
+          sessionStorage.setItem('org', this.userData.org);
 
           if(this.userData.role === 'Admin'){
             this.toast.success('Login Successfully!');

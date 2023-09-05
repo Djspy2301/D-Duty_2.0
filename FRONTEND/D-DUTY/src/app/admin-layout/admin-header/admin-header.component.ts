@@ -10,9 +10,13 @@ import { ToastrService } from 'ngx-toastr'
 export class AdminHeaderComponent {
   constructor(private route: Router, private toast: ToastrService) { }
 
+  orgName = sessionStorage.getItem('org')
+
   logout() {
     sessionStorage.removeItem('role')
+    sessionStorage.removeItem('name')
     sessionStorage.removeItem('username')
+    sessionStorage.removeItem('org')
     this.toast.success('Logout Successfully!')
     this.route.navigate(['login'])
 

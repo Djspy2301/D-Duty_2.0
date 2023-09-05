@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
-    <span>Your App Name</span>
+    <img src="assets/icon.jpg" alt="">
     <span class="spacer"></span>
-    <button mat-button routerLink="/">user-Profile</button>
+    <button mat-button routerLink="/">{{name}}</button>
     <button mat-button routerLink="/register">Dashboard</button>
     <button (click)="logout()" mat-button>Logout</button>
   </mat-toolbar>
