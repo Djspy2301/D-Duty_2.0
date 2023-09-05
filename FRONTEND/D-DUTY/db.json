@@ -7,6 +7,14 @@
       "password": "123456",
       "email": "adit@gmail.com",
       "role": "Admin"
+    },
+    {
+      "id": "aku",
+      "name": "Akshad",
+      "password": "123456",
+      "email": "adit@gmail.com",
+      "admin": "aadi",
+      "role": "User"
     }
   ]
 }

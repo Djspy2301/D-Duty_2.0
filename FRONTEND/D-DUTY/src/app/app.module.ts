@@ -10,12 +10,20 @@ import { MaterialModule } from './material.module';
 import {ReactiveFormsModule} from '@angular/forms'
 import {ToastrModule} from 'ngx-toastr'
 import {HttpClientModule} from '@angular/common/http'
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { AdminHeaderComponent } from './admin-layout/admin-header/admin-header.component';
+import { UserLayoutComponent } from './user-layout/user-layout.component';
+import { UserHeaderComponent } from './user-layout/user-header/user-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AdminLayoutComponent,
+    AdminHeaderComponent,
+    UserLayoutComponent,
+    UserHeaderComponent
   ],
   imports: [
     BrowserModule,

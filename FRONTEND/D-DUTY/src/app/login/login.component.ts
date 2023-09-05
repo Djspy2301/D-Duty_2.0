@@ -22,20 +22,21 @@ export class LoginComponent {
 
   proceedLogin() {
     if (this.loginForm.valid) {
-      //   this.authService.proceedreg(this.loginForm.value).subscribe(res => {
-      //     this.toast.success('Registration Successful!');
-      //     this.route.navigate(['dashboard']);
-      //   })
-      // } else {
-      //   this.toast.warning('Pleas enter valid inputs!');
       this.authService.getByCode(this.loginForm.value.id).subscribe(res => {
         this.userData = res;
         console.log(this.userData);
         if (this.userData.password === this.loginForm.value.password) {
           sessionStorage.setItem('username', this.userData.id);
           sessionStorage.setItem('role', this.userData.role);
-          this.route.navigate(['dashboard']);
-          this.toast.success('Login Successfully!');
+
+          if(this.userData.role === 'Admin'){
+            this.toast.success('Login Successfully!');
+            this.route.navigate(['admin-dashboard']);
+          }else if(this.userData.role === 'User'){
+            this.toast.success('Login Successfully!');
+            this.route.navigate(['user-dashboard']);
+          }
+          
         } else {
           this.toast.warning('Invalid credientials!');
         }
