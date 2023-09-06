@@ -15,6 +15,24 @@
       "email": "adit@gmail.com",
       "admin": "aadi",
       "role": "User"
+    },
+    {
+      "id": "lappu",
+      "name": "sachin",
+      "password": "123456",
+      "email": "sachin@gmail.com",
+      "deg": "engineer",
+      "regBy": "aadi",
+      "role": "User"
+    },
+    {
+      "id": "p_ka_n",
+      "name": "nikhil",
+      "password": "123456",
+      "email": "nikhil@gmail.com",
+      "deg": "python dev",
+      "regBy": "aadi",
+      "role": "User"
     }
   ]
 }

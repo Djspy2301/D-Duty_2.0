@@ -16,6 +16,7 @@ import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { UserHeaderComponent } from './user-layout/user-header/user-header.component';
 import { UserDashboardComponent } from './user-layout/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-layout/admin-dashboard/admin-dashboard.component';
+import { AddStaffComponent } from './admin-layout/add-staff/add-staff.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AdminDashboardComponent } from './admin-layout/admin-dashboard/admin-da
     AdminLayoutComponent,
     AdminHeaderComponent,
     AdminDashboardComponent,
+    AddStaffComponent,
     UserLayoutComponent,
     UserHeaderComponent,
     UserDashboardComponent

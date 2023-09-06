@@ -33,10 +33,10 @@ export class LoginComponent {
 
           if(this.userData.role === 'Admin'){
             this.toast.success('Login Successfully!');
-            this.route.navigate(['admin-dashboard']);
+            this.route.navigate(['admin/dashboard']);
           }else if(this.userData.role === 'User'){
             this.toast.success('Login Successfully!');
-            this.route.navigate(['user-dashboard']);
+            this.route.navigate(['user/dashboard']);
           }
           
         } else {
