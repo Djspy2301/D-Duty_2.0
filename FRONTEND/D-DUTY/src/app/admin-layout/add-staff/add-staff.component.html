@@ -1,45 +1,50 @@
 <mat-card id="wild-card">
-    
-    <mat-card-content id="wild-content">
-        <h1>Add Staff</h1>
-        <form class="example-form" [formGroup]="regStaff" (ngSubmit)="addStaff()">
-            <mat-form-field class="example-full-width">
-                <mat-label>User Name</mat-label>
-                <input matInput formControlName="id">
-            </mat-form-field>
+  <mat-card-content id="wild-content">
+    <h1>Add Staff</h1>
+    <form class="example-form" [formGroup]="regStaff" (ngSubmit)="addStaff()">
+      <mat-form-field class="example-full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput formControlName="id" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Email Id</mat-label>
-                <input matInput formControlName="email">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email Id</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Degignation</mat-label>
-                <input matInput formControlName="deg">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Degignation</mat-label>
+        <input matInput formControlName="deg" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Registered By</mat-label>
-                <input matInput formControlName="regBy">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Registered By</mat-label>
+        <input matInput formControlName="regBy" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Role</mat-label>
-                <input matInput formControlName="role">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="role" />
+      </mat-form-field>
 
-            <button class="btn" mat-raised-button color="primary">Add Staff</button>
-            <a class="btn" routerLink="/admin/dashboard" mat-raised-button color="accent">Dashboard</a>
-        </form>
-    </mat-card-content>
+      <button class="btn" mat-raised-button color="primary">Add Staff</button>
+      <a
+        class="btn"
+        [routerLink]="['/admin', id, 'dashboard']"
+        mat-raised-button
+        color="accent"
+        >Dashboard</a
+      >
+    </form>
+  </mat-card-content>
 </mat-card>

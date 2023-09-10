@@ -7,9 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
-import {ReactiveFormsModule} from '@angular/forms'
-import {ToastrModule} from 'ngx-toastr'
-import {HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { AdminHeaderComponent } from './admin-layout/admin-header/admin-header.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
@@ -17,6 +17,7 @@ import { UserHeaderComponent } from './user-layout/user-header/user-header.compo
 import { UserDashboardComponent } from './user-layout/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-layout/admin-dashboard/admin-dashboard.component';
 import { AddStaffComponent } from './admin-layout/add-staff/add-staff.component';
+import { StaffComponent } from './admin-layout/staff/staff.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,10 @@ import { AddStaffComponent } from './admin-layout/add-staff/add-staff.component'
     AdminHeaderComponent,
     AdminDashboardComponent,
     AddStaffComponent,
+    StaffComponent,
     UserLayoutComponent,
     UserHeaderComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +40,9 @@ import { AddStaffComponent } from './admin-layout/add-staff/add-staff.component'
     MaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

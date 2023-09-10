@@ -3,19 +3,14 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:3000/user'
-
-  getAll() {
-    return this.http.get(this.apiUrl);
-  }
+  constructor(private http: HttpClient) {}
+  apiUrl = 'http://localhost:3000/user';
 
   getByCode(code: any) {
-    return this.http.get(this.apiUrl + '/' + code)
+    return this.http.get(this.apiUrl + '/' + code);
   }
 
   proceedreg(inputData: any) {
@@ -26,11 +21,13 @@ export class AuthService {
     return this.http.post(this.apiUrl + '/' + code, inputData);
   }
 
-  isLoggedIn(){
-    return sessionStorage.getItem('username')!=null;
+  isLoggedIn() {
+    return sessionStorage.getItem('username') != null;
   }
 
-  getUserRole(){
-    return sessionStorage.getItem('username')!=null?sessionStorage.getItem('role')?.toString():'';
+  getUserRole() {
+    return sessionStorage.getItem('username') != null
+      ? sessionStorage.getItem('role')?.toString()
+      : '';
   }
 }

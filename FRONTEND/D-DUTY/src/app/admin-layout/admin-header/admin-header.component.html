@@ -1,15 +1,17 @@
 <mat-toolbar color="primary">
-    <div class="left">
-      <span><img src="assets/icon.jpg" alt=""></span>
-      <button id="orgName" mat-button routerLink="/">{{orgName}}</button>
-    </div>
-    
-    <span class="spacer"></span>
-    
-    <button mat-button routerLink="/admin/dashboard">Dashboard</button>
-    <button (click)="logout()" mat-button>Logout</button>
-  </mat-toolbar>
-  
-  <div class="content" style="width: 100%; display: block;" role="main">
-    <router-outlet></router-outlet>
+  <div class="left">
+    <span><img src="assets/icon.jpg" alt="" /></span>
+    <button id="orgName" mat-button routerLink="/">{{ orgName }}</button>
   </div>
+
+  <span class="spacer"></span>
+
+  <button mat-button [routerLink]="['/admin', id, 'dashboard']">
+    Dashboard
+  </button>
+  <button (click)="logout()" mat-button>Logout</button>
+</mat-toolbar>
+
+<div class="content" style="width: 100%; display: block" role="main">
+  <router-outlet></router-outlet>
+</div>
