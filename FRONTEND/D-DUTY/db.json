@@ -121,21 +121,18 @@
       "deg": "dr",
       "regBy": "aku",
       "role": "User"
+    },
+    {
+      "id": "pinky",
+      "name": "Rinki",
+      "password": "123456",
+      "email": "rinki@gmail.com",
+      "deg": "sister",
+      "regBy": "aadi",
+      "role": "User"
     }
   ],
   "dateTime": [
-    {
-      "date": "2023-09-10T18:30:00.000Z",
-      "time": "08:30",
-      "regBy": "aadi",
-      "id": 1
-    },
-    {
-      "date": "2023-09-10T18:30:00.000Z",
-      "time": "12:30",
-      "regBy": "aadi",
-      "id": 2
-    },
     {
       "date": "2023-09-10T18:30:00.000Z",
       "time": "10:00",
@@ -153,6 +150,18 @@
       "time": "22:00",
       "regBy": "aku",
       "id": 5
+    },
+    {
+      "date": "2023-09-11T18:30:00.000Z",
+      "time": "10:00",
+      "regBy": "aadi",
+      "id": 6
+    },
+    {
+      "date": "2023-09-11T18:30:00.000Z",
+      "time": "12:00",
+      "regBy": "aadi",
+      "id": 7
     }
   ]
 }

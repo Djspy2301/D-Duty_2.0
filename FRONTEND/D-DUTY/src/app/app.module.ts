@@ -20,6 +20,7 @@ import { AddStaffComponent } from './admin-layout/add-staff/add-staff.component'
 import { StaffComponent } from './admin-layout/staff/staff.component';
 import { TimeScheduleComponent } from './admin-layout/time-schedule/time-schedule.component';
 import { CtsPopupComponent } from './admin-layout/time-schedule/cts-popup/cts-popup.component';
+import { StaffScheduleComponent } from './admin-layout/staff-schedule/staff-schedule.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,10 @@ import { CtsPopupComponent } from './admin-layout/time-schedule/cts-popup/cts-po
     AdminHeaderComponent,
     AdminDashboardComponent,
     AddStaffComponent,
+    StaffComponent,
     TimeScheduleComponent,
     CtsPopupComponent,
-    StaffComponent,
+    StaffScheduleComponent,
     UserLayoutComponent,
     UserHeaderComponent,
     UserDashboardComponent,

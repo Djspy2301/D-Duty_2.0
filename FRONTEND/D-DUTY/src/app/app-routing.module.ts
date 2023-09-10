@@ -12,6 +12,7 @@ import { UserAuthGuard } from './guard/user-guard.guard';
 import { NoPageComponent } from './no-page/no-page.component';
 import { StaffComponent } from './admin-layout/staff/staff.component';
 import { TimeScheduleComponent } from './admin-layout/time-schedule/time-schedule.component';
+import { StaffScheduleComponent } from './admin-layout/staff-schedule/staff-schedule.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -34,6 +35,7 @@ const routes: Routes = [
         component: StaffComponent,
       },
       { path: 'time-schedule', component: TimeScheduleComponent },
+      { path: 'staff-schedule', component: StaffScheduleComponent },
     ],
     canActivate: [AdminAuthGuard],
   },
