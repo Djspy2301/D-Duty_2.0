@@ -22,5 +22,10 @@ export class AdminServiceService {
   //fetch userlist
   getUsersByAdmin(adminId: string) {
     return this.http.get(`${this.apiUrl}?regBy=${adminId}`);
+    console.log(adminId);
+  }
+
+  pageReload() {
+    window.location.reload();
   }
 }
