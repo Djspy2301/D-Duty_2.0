@@ -33,6 +33,15 @@
       "deg": "python dev",
       "regBy": "aadi",
       "role": "User"
+    },
+    {
+      "id": "Hinata",
+      "name": "Dinesh Chaudhry",
+      "password": "123456",
+      "email": "dinesh@gmail.com",
+      "deg": "data analyst",
+      "regBy": "aadi",
+      "role": "User"
     }
   ]
 }

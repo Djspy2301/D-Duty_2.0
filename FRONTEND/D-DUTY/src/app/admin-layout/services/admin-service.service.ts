@@ -15,8 +15,12 @@ export class AdminServiceService {
   addStaff(inputData: any) {
     return this.http.post(this.apiUrl, inputData);
   }
-
+  id = this.getIdFromSessionStorage();
   getIdFromSessionStorage() {
     return sessionStorage.getItem('username') || '';
+  }
+  //fetch userlist
+  getUsersByAdmin(adminId: string) {
+    return this.http.get(`${this.apiUrl}?regBy=${adminId}`);
   }
 }
