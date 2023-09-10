@@ -112,6 +112,47 @@
       "password": "123456",
       "email": "akshad@gmail.com",
       "role": "Admin"
+    },
+    {
+      "id": "adeee",
+      "name": "adish",
+      "password": "123456",
+      "email": "adish@gmail.com",
+      "deg": "dr",
+      "regBy": "aku",
+      "role": "User"
+    }
+  ],
+  "dateTime": [
+    {
+      "date": "2023-09-10T18:30:00.000Z",
+      "time": "08:30",
+      "regBy": "aadi",
+      "id": 1
+    },
+    {
+      "date": "2023-09-10T18:30:00.000Z",
+      "time": "12:30",
+      "regBy": "aadi",
+      "id": 2
+    },
+    {
+      "date": "2023-09-10T18:30:00.000Z",
+      "time": "10:00",
+      "regBy": "aku",
+      "id": 3
+    },
+    {
+      "date": "2023-09-10T18:30:00.000Z",
+      "time": "16:00",
+      "regBy": "aku",
+      "id": 4
+    },
+    {
+      "date": "2023-09-10T18:30:00.000Z",
+      "time": "22:00",
+      "regBy": "aku",
+      "id": 5
     }
   ]
 }

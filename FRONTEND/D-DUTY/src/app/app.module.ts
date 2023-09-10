@@ -18,6 +18,8 @@ import { UserDashboardComponent } from './user-layout/user-dashboard/user-dashbo
 import { AdminDashboardComponent } from './admin-layout/admin-dashboard/admin-dashboard.component';
 import { AddStaffComponent } from './admin-layout/add-staff/add-staff.component';
 import { StaffComponent } from './admin-layout/staff/staff.component';
+import { TimeScheduleComponent } from './admin-layout/time-schedule/time-schedule.component';
+import { CtsPopupComponent } from './admin-layout/time-schedule/cts-popup/cts-popup.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { StaffComponent } from './admin-layout/staff/staff.component';
     AdminHeaderComponent,
     AdminDashboardComponent,
     AddStaffComponent,
+    TimeScheduleComponent,
+    CtsPopupComponent,
     StaffComponent,
     UserLayoutComponent,
     UserHeaderComponent,

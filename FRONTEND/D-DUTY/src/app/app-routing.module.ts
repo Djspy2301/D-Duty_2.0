@@ -11,6 +11,7 @@ import { UserDashboardComponent } from './user-layout/user-dashboard/user-dashbo
 import { UserAuthGuard } from './guard/user-guard.guard';
 import { NoPageComponent } from './no-page/no-page.component';
 import { StaffComponent } from './admin-layout/staff/staff.component';
+import { TimeScheduleComponent } from './admin-layout/time-schedule/time-schedule.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
         path: 'staff',
         component: StaffComponent,
       },
+      { path: 'time-schedule', component: TimeScheduleComponent },
     ],
     canActivate: [AdminAuthGuard],
   },
