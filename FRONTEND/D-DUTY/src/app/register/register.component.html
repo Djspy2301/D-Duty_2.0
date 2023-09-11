@@ -1,40 +1,40 @@
 <mat-card id="wild-card">
-    
-    <mat-card-content id="wild-content">
-        <h1>Admin Registration</h1>
-        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedReg()">
-            <mat-form-field class="example-full-width">
-                <mat-label>User Name</mat-label>
-                <input matInput formControlName="id">
-            </mat-form-field>
+  <mat-card-content id="wild-content">
+    <h1>Admin Registration</h1>
+    <form
+      class="example-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="proceedReg()"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>User Name</mat-label>
+        <input matInput formControlName="id" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Organization Name</mat-label>
-                <input matInput formControlName="org">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Organization Name</mat-label>
+        <input matInput formControlName="org" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput formControlName="password">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName="email">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>role</mat-label>
-                <input matInput formControlName="role">
-            </mat-form-field>
-
-            <button class="btn" mat-raised-button color="primary">Submit</button>
-            <a class="btn" routerLink="/" mat-raised-button color="accent">Back to Login</a>
-        </form>
-    </mat-card-content>
+      <button class="btn" mat-raised-button color="primary">Submit</button>
+      <a class="btn" routerLink="/" mat-raised-button color="accent"
+        >Back to Login</a
+      >
+    </form>
+  </mat-card-content>
 </mat-card>

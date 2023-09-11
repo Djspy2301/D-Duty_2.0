@@ -44,76 +44,6 @@
       "role": "Admin"
     },
     {
-      "id": "lappu",
-      "name": "sachin",
-      "password": "123456",
-      "email": "sachin@gmail.com",
-      "deg": "engineer",
-      "regBy": "aadi",
-      "role": "User"
-    },
-    {
-      "id": "p_ka_n",
-      "name": "nikhil",
-      "password": "123456",
-      "email": "nikhil@gmail.com",
-      "deg": "python dev",
-      "regBy": "aadi",
-      "role": "User"
-    },
-    {
-      "id": "Hinata",
-      "name": "Dinesh Chaudhry",
-      "password": "123456",
-      "email": "dinesh@gmail.com",
-      "deg": "data analyst",
-      "regBy": "aadi",
-      "role": "User"
-    },
-    {
-      "id": "aku",
-      "org": "Djspy Pvt. Ltd.",
-      "name": "Akshad Navle",
-      "password": "123456",
-      "email": "akshad@gmail.com",
-      "role": "Admin"
-    },
-    {
-      "id": "lappu",
-      "name": "sachin",
-      "password": "123456",
-      "email": "sachin@gmail.com",
-      "deg": "engineer",
-      "regBy": "aadi",
-      "role": "User"
-    },
-    {
-      "id": "p_ka_n",
-      "name": "nikhil",
-      "password": "123456",
-      "email": "nikhil@gmail.com",
-      "deg": "python dev",
-      "regBy": "aadi",
-      "role": "User"
-    },
-    {
-      "id": "Hinata",
-      "name": "Dinesh Chaudhry",
-      "password": "123456",
-      "email": "dinesh@gmail.com",
-      "deg": "data analyst",
-      "regBy": "aadi",
-      "role": "User"
-    },
-    {
-      "id": "aku",
-      "org": "Djspy Pvt. Ltd.",
-      "name": "Akshad Navle",
-      "password": "123456",
-      "email": "akshad@gmail.com",
-      "role": "Admin"
-    },
-    {
       "id": "adeee",
       "name": "adish",
       "password": "123456",
@@ -128,6 +58,15 @@
       "password": "123456",
       "email": "rinki@gmail.com",
       "deg": "sister",
+      "regBy": "aadi",
+      "role": "User"
+    },
+    {
+      "id": "kaki",
+      "name": "kiran",
+      "password": "123456",
+      "email": "kaki@gmail.com",
+      "deg": "tester",
       "regBy": "aadi",
       "role": "User"
     }

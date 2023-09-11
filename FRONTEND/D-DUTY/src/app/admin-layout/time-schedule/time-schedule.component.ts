@@ -46,7 +46,7 @@ export class TimeScheduleComponent {
       this.datasource = new MatTableDataSource(this.usersList);
       this.datasource.paginator = this.paginator;
       this.datasource.sort = this.sort;
-      console.log(this.usersList);
+      // console.log(this.usersList);
     });
   }
   displayedColumns: string[] = ['date', 'time', 'action'];

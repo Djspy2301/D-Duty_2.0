@@ -29,10 +29,12 @@ export class AddStaffComponent {
       '',
       Validators.compose([Validators.required, Validators.maxLength(15)])
     ),
-    regBy: this.builder.control(sessionStorage.getItem('username')),
-    role: this.builder.control('User'),
+    regBy: '',
+    role: '',
   });
   addStaff() {
+    this.regStaff.value['role'] = 'User';
+    this.regStaff.value['regBy'] = sessionStorage.getItem('username');
     if (this.regStaff.valid) {
       this.adminService.addStaff(this.regStaff.value).subscribe((res) => {
         this.toast.success('Registration Successful!');

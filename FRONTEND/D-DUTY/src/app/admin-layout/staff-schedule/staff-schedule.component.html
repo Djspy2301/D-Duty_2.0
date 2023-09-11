@@ -1,7 +1,12 @@
-<mat-card>
-  <mat-card-content>
-    <mat-card>
-      <mat-card-content>Simple card</mat-card-content>
-    </mat-card>
-  </mat-card-content>
-</mat-card>
+<div class="card-div" *ngFor="let slot of timeSlots">
+  <mat-card>
+    <mat-card-content class="card-container">
+      <mat-card>
+        <mat-card-content class="card">
+          <p>Date: {{ slot.date }}</p>
+          <p>Time: {{ slot.time }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</div>
