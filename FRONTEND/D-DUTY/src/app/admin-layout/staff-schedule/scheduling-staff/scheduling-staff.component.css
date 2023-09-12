@@ -1,0 +1,11 @@
+h1 {
+  font-style: oblique;
+  font-weight: 600;
+  text-decoration: underline;
+  margin: 10px;
+}
+
+.btn {
+  width: 25%;
+  margin: 20px 35%;
+}

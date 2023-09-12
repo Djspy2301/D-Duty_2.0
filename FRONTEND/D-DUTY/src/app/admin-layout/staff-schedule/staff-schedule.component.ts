@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { StaffScheduleService } from './staff-schedule.service';
 import { AdminServiceService } from '../services/admin-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SsPopupComponent } from './ss-popup/ss-popup.component';
 
 @Component({
   selector: 'app-staff-schedule',
@@ -12,6 +14,7 @@ export class StaffScheduleComponent {
 
   constructor(
     private staffScheduleService: StaffScheduleService,
+    private dialog: MatDialog,
     private adminService: AdminServiceService
   ) {}
   id = this.adminService.id;
@@ -22,7 +25,15 @@ export class StaffScheduleComponent {
   loadTimeSlots() {
     this.staffScheduleService.getTimeSlots(this.id).subscribe((data) => {
       this.timeSlots = data;
-      console.log(data);
+      // console.log(data);
+    });
+  }
+
+  viewSsPopup() {
+    this.dialog.open(SsPopupComponent, {
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '500ms',
+      width: '50%',
     });
   }
 }
