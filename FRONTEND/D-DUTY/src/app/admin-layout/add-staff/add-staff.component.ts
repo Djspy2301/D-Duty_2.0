@@ -34,7 +34,7 @@ export class AddStaffComponent {
   });
   addStaff() {
     this.regStaff.value['role'] = 'User';
-    this.regStaff.value['regBy'] = sessionStorage.getItem('username');
+    this.regStaff.value['regBy'] = sessionStorage.getItem('user');
     if (this.regStaff.valid) {
       this.adminService.addStaff(this.regStaff.value).subscribe((res) => {
         this.toast.success('Registration Successful!');
