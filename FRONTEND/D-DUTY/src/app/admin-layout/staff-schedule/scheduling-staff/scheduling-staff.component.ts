@@ -26,7 +26,7 @@ export class SchedulingStaffComponent {
   @ViewChild(MatSort) sort!: MatSort;
 
   loadStaff() {
-    this.adminService.getUsersByAdmin(this.id).subscribe((data: any[]) => {
+    this.adminService.getUserListByAdminId(this.id).subscribe((data: any[]) => {
       this.usersList = data;
       this.datasource = new MatTableDataSource(this.usersList);
       this.datasource.paginator = this.paginator;

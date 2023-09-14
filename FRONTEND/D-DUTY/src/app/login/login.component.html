@@ -1,21 +1,25 @@
 <mat-card id="wild-card">
-    
-    <mat-card-content id="wild-content">
-        <h1>Login</h1>
-        <form class="example-form" [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
+  <mat-card-content id="wild-content">
+    <h1>Login</h1>
+    <form
+      class="example-form"
+      [formGroup]="loginForm"
+      (ngSubmit)="proceedLogin()"
+    >
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="user" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="id">
-            </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput formControlName="password">
-            </mat-form-field>
-
-            <button class="btn" mat-raised-button color="primary">Login</button>
-            <a class="btn" routerLink="/register" mat-raised-button color="accent">NEW?</a>
-        </form>
-    </mat-card-content>
+      <button class="btn" mat-raised-button color="primary">Login</button>
+      <a class="btn" routerLink="/register" mat-raised-button color="accent"
+        >NEW?</a
+      >
+    </form>
+  </mat-card-content>
 </mat-card>

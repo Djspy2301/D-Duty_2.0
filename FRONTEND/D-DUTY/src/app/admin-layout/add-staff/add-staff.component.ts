@@ -18,7 +18,7 @@ export class AddStaffComponent {
     private route: Router
   ) {}
   regStaff = this.builder.group({
-    id: this.builder.control('', Validators.required),
+    user: this.builder.control('', Validators.required),
     name: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required),
     email: this.builder.control(

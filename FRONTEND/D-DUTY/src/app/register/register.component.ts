@@ -18,7 +18,7 @@ export class RegisterComponent {
   ) {}
 
   registerForm = this.builder.group({
-    id: this.builder.control('', Validators.required),
+    user: this.builder.control('', Validators.required),
     org: this.builder.control(
       '',
       Validators.compose([Validators.required, Validators.maxLength(20)])
@@ -29,6 +29,7 @@ export class RegisterComponent {
       '',
       Validators.compose([Validators.required, Validators.email])
     ),
+    deg: 'Admin',
     role: '',
   });
 

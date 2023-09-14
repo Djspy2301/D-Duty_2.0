@@ -31,13 +31,14 @@ export class StaffComponent {
   //   });
   // }
   loadUsers() {
-    this.adminService.getUsersByAdmin(this.id).subscribe((data: object) => {
+    this.adminService.getUserListByAdminId(this.id).subscribe((data: any[]) => {
       this.usersList = data;
       this.datasource = new MatTableDataSource(this.usersList);
       this.datasource.paginator = this.paginator;
       this.datasource.sort = this.sort;
+      console.log(this.id);
     });
   }
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'deg'];
+  displayedColumns: string[] = ['user', 'name', 'email', 'deg'];
 }

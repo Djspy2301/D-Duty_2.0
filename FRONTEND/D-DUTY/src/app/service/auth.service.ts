@@ -7,14 +7,14 @@ import { catchError } from 'rxjs';
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  apiUrl = 'http://localhost:3000/user';
+  apiUrl = 'http://localhost:8000/api/v1/';
 
-  getByCode(code: any) {
-    return this.http.get(this.apiUrl + '/' + code);
+  getByCode(input: any) {
+    return this.http.post(this.apiUrl + 'log-in', input);
   }
 
   proceedreg(inputData: any) {
-    return this.http.post(this.apiUrl, inputData);
+    return this.http.post(this.apiUrl + '/sign-up', inputData);
   }
 
   updateUser(code: any, inputData: any) {
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   getUserRole() {
-    return sessionStorage.getItem('username') != null
+    return sessionStorage.getItem('user') != null
       ? sessionStorage.getItem('role')?.toString()
       : '';
   }

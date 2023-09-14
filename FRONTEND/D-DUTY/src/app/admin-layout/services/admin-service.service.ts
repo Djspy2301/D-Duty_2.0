@@ -8,21 +8,22 @@ import { Observable } from 'rxjs';
 export class AdminServiceService {
   constructor(private http: HttpClient) {}
 
-  apiUrl = 'http://localhost:3000/user';
+  apiUrl = 'http://localhost:8000/api/v1/';
 
   getAll() {
     return this.http.get(this.apiUrl);
   }
   addStaff(inputData: any) {
-    return this.http.post(this.apiUrl, inputData);
+    return this.http.post(this.apiUrl + 'sign-up', inputData);
   }
   id = this.getIdFromSessionStorage();
   getIdFromSessionStorage() {
-    return sessionStorage.getItem('username') || '';
+    return sessionStorage.getItem('user') || '';
   }
   //fetch userlist
-  getUsersByAdmin(adminId: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?regBy=${adminId}`);
+  getUserListByAdminId(adminId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/admin/${adminId}/staff`;
+    return this.http.get<any[]>(url);
   }
 
   pageReload() {
