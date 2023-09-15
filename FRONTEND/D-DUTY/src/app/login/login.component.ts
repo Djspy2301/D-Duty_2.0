@@ -68,7 +68,6 @@ export class LoginComponent {
           } else if (res.role === 'User') {
             this.route.navigate(['user', id, 'dashboard']);
           }
-          console.log(id);
         },
         (error: any) => {
           this.toast.warning('Invalid credentials!');

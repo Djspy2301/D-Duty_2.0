@@ -1,5 +1,6 @@
 const {
   getLogin,
+  addStaff,
   userSignUp,
   updateUser,
   staffList,
@@ -12,6 +13,7 @@ const router = exp.Router();
 
 router.route("/sign-up").post(userSignUp);
 router.route("/log-in/").post(getLogin);
+router.route("/:id/add-staff").post(addStaff);
 router.route("/admin/:id/staff").get(staffList);
 // router.route("/dashboard/add-staff").post(createUser);
 router.route("/dashboard/staff").get(staffList);

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const UsersSchema = new mongoose.Schema(
+const StaffSchema = new mongoose.Schema(
   {
     user: {
       type: String,
@@ -9,20 +9,10 @@ const UsersSchema = new mongoose.Schema(
       maxlength: [20, "username must be within 20 characters"],
       unique: true,
     },
-    org: {
-      type: String,
-      unique: true,
-    },
     name: {
       type: String,
       required: [true, "must required name"],
       trim: true,
-    },
-    email: {
-      type: String,
-      required: [true, "must required email"],
-      trim: true,
-      unique: true,
     },
     password: {
       type: String,
@@ -30,12 +20,20 @@ const UsersSchema = new mongoose.Schema(
       trim: true,
       minlength: [8, "upassword atleast have 8 characters"],
     },
-    role: {
+    email: {
       type: String,
-      required: true,
+      required: [true, "must required email"],
+      trim: true,
+      unique: true,
     },
+    deg: {
+      type: String,
+      required: [true, "must required Degignation"],
+    },
+    role: { type: String, required: true },
+    regBy: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("User", UsersSchema);
+module.exports = mongoose.model("Staff", StaffSchema);

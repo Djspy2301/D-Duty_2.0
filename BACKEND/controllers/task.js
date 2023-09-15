@@ -1,5 +1,6 @@
 // const { json } = require("express");
 const User = require("../models/uers");
+const Staff = require("../models/staff");
 const jwt = require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
 
@@ -7,28 +8,30 @@ const getLogin = async (req, res) => {
   try {
     const user = await User.findOne({ user: req.body.user });
 
-    if (!user) {
+    const staff = await Staff.findOne({ user: req.body.user });
+
+    if (!user && !staff) {
       return res.status(401).json("Wrong Credentials!");
     }
+    let hashPassword;
 
-    const hashPassword = CryptoJS.AES.decrypt(
-      user.password,
-      process.env.PASS_SEC
-    );
-    const password = hashPassword.toString(CryptoJS.enc.Utf8);
-    if (password !== req.body.password) {
+    if (user) {
+      hashPassword = user.password;
+    } else if (staff) {
+      hashPassword = staff.password;
+    }
+    if (hashPassword == null) {
+      return res.status(401).json("Wrong Credentials");
+    }
+    console.log(hashPassword);
+    const bytes = CryptoJS.AES.decrypt(hashPassword, process.env.PASS_SEC);
+    const pass = bytes.toString(CryptoJS.enc.Utf8);
+
+    if (pass !== req.body.password) {
       return res.status(401).json("Wrong Credentials");
     }
 
-    // const accessToken = jwt.sign(
-    //   {
-    //     id: User._id,
-    //   },
-    //   process.env.JWT_SEC,
-    //   { expiresIn: "3d" }
-    // );
-
-    res.status(200).json(user);
+    res.status(200).json(user || staff);
     //res.status(200).json({ ...user._doc }); //to disply data without key
   } catch (error) {
     console.log(error);
@@ -46,8 +49,6 @@ const userSignUp = async (req, res) => {
       req.body.password,
       process.env.PASS_SEC
     ).toString(),
-    deg: req.body.deg,
-    regBy: req.body.regBy,
     role: req.body.role,
   });
   try {
@@ -58,45 +59,40 @@ const userSignUp = async (req, res) => {
   }
 };
 
+//Add Staff
+const addStaff = async (req, res) => {
+  const id = req.params.id;
+  const newStaff = new Staff({
+    user: req.body.user,
+    name: req.body.name,
+    email: req.body.email,
+    password: CryptoJS.AES.encrypt(
+      req.body.password,
+      process.env.PASS_SEC
+    ).toString(),
+    deg: req.body.deg,
+    regBy: id,
+    role: req.body.role,
+  });
+  try {
+    const savedStaff = await newStaff.save();
+    res.status(201).json({ user: savedStaff });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+};
+
 const getAllUsers = (req, res) => {
   res.send("All Users Table!!!");
 };
-
-//USER REGESTRATION
-// const createUser = async (req, res) => {
-//   // try {
-//   //     admin = await this.req._id;
-//   // } catch (error) {
-//   //     console.log(error);
-//   // }
-
-//   const newUser = new User({
-//     fName: req.body.fName,
-//     mName: req.body.mName,
-//     lName: req.body.lName,
-//     email: req.body.email,
-//     password: req.body.password,
-//     cPassword: req.body.cPassword,
-//     gender: req.body.gender,
-//     degignation: req.body.degignation,
-//     address: req.body.address,
-//     adminId: req.body.adminId,
-//   });
-
-//   try {
-//     const user = await User.create(newUser);
-//     res.status(401).json({ user });
-//   } catch (error) {
-//     res.status(500).json({ msg: error });
-//   }
-// };
 
 //Displaying Staff List
 const staffList = async (req, res) => {
   // const query = {adminId: hostId}
   try {
-    const id = req.params.user;
-    const staffList = await User.find({ admin: id, role: "User" });
+    const id = req.params.id;
+    console.log(id);
+    const staffList = await Staff.find({ regBy: id, role: "User" });
     res.status(200).json(staffList);
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -119,6 +115,7 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
   getLogin,
+  addStaff,
   userSignUp,
   updateUser,
   getAllUsers,

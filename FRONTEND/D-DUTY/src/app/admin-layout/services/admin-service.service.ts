@@ -13,8 +13,8 @@ export class AdminServiceService {
   getAll() {
     return this.http.get(this.apiUrl);
   }
-  addStaff(inputData: any) {
-    return this.http.post(this.apiUrl + 'sign-up', inputData);
+  addStaff(id: any, inputData: any) {
+    return this.http.post(this.apiUrl + `${id}` + '/add-staff', inputData);
   }
   id = this.getIdFromSessionStorage();
   getIdFromSessionStorage() {

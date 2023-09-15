@@ -30,16 +30,18 @@ export class AddStaffComponent {
       Validators.compose([Validators.required, Validators.maxLength(15)])
     ),
     regBy: '',
-    role: '',
+    role: 'User',
   });
   addStaff() {
-    this.regStaff.value['role'] = 'User';
+    // this.regStaff.value['role'] = 'User';
     this.regStaff.value['regBy'] = sessionStorage.getItem('user');
     if (this.regStaff.valid) {
-      this.adminService.addStaff(this.regStaff.value).subscribe((res) => {
-        this.toast.success('Registration Successful!');
-        this.regStaff.reset();
-      });
+      this.adminService
+        .addStaff(this.adminService.id, this.regStaff.value)
+        .subscribe((res) => {
+          this.toast.success('Registration Successful!');
+          this.regStaff.reset();
+        });
     } else {
       this.toast.warning('Pleas enter valid inputs!');
     }
