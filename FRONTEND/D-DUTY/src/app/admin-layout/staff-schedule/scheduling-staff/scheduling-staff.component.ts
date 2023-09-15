@@ -34,7 +34,7 @@ export class SchedulingStaffComponent {
       // console.log(this.usersList);
     });
   }
-  displayedColumns: string[] = ['id', 'name', 'email', 'deg', 'select'];
+  displayedColumns: string[] = ['user', 'name', 'email', 'deg', 'select'];
   proceedStaffScheduling(user: any) {
     this.scheduleService.proceedSeduling(user).subscribe((res) => {
       console.log('Selected staff members added to the database:', res);

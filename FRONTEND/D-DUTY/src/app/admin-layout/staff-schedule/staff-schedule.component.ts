@@ -23,7 +23,7 @@ export class StaffScheduleComponent {
   }
 
   loadTimeSlots() {
-    this.staffScheduleService.getTimeSlots(this.id).subscribe((data) => {
+    this.staffScheduleService.getTimeSlots(this.id).subscribe((data: any[]) => {
       this.timeSlots = data;
       // console.log(data);
     });

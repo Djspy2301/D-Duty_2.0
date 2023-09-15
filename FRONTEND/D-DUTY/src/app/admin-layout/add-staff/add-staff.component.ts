@@ -30,10 +30,10 @@ export class AddStaffComponent {
       Validators.compose([Validators.required, Validators.maxLength(15)])
     ),
     regBy: '',
-    role: 'User',
+    role: '',
   });
   addStaff() {
-    // this.regStaff.value['role'] = 'User';
+    this.regStaff.value['role'] = 'User';
     this.regStaff.value['regBy'] = sessionStorage.getItem('user');
     if (this.regStaff.valid) {
       this.adminService

@@ -71,9 +71,10 @@ export class TimeScheduleComponent {
     });
   }
 
-  deleteSlot(slotId: string) {
+  deleteSlot(slot: string) {
+    console.log(slot);
     // Call the deleteSlot method from your service
-    this.timeService.deleteSlot(slotId).subscribe(() => {
+    this.timeService.deleteSlot(slot).subscribe(() => {
       // After successful deletion, update the data in your component
       this.fetchDatetimeData();
     });

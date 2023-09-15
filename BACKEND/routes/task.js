@@ -2,10 +2,11 @@ const {
   getLogin,
   addStaff,
   userSignUp,
-  updateUser,
   staffList,
-  deleteUser,
   createTimeSlots,
+  loadByReg,
+  deleteSlot,
+  loadSlot,
 } = require("../controllers/task");
 
 const exp = require("express");
@@ -15,10 +16,9 @@ router.route("/sign-up").post(userSignUp);
 router.route("/log-in/").post(getLogin);
 router.route("/:id/add-staff").post(addStaff);
 router.route("/admin/:id/staff").get(staffList);
-// router.route("/dashboard/add-staff").post(createUser);
-router.route("/dashboard/staff").get(staffList);
-router.route("/dashboard/schedule-time").post(createTimeSlots);
-router.route("/dashboard/:id/update-user").patch(updateUser);
-router.route("/:admin/delete-user").delete(deleteUser);
+router.route("/admin/:id/schedule-time").post(createTimeSlots);
+router.route("/admin/:id/load-list").get(loadByReg);
+router.route("/admin/delete-slot/:id").delete(deleteSlot);
+router.route("/admin/:regBy/load-slots").get(loadSlot);
 
 module.exports = router;

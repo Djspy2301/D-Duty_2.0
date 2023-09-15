@@ -1,7 +1,7 @@
 // const { json } = require("express");
 const User = require("../models/uers");
 const Staff = require("../models/staff");
-const jwt = require("jsonwebtoken");
+const TimeSlot = require("../models/timeSlot");
 const CryptoJS = require("crypto-js");
 
 const getLogin = async (req, res) => {
@@ -91,35 +91,79 @@ const staffList = async (req, res) => {
   // const query = {adminId: hostId}
   try {
     const id = req.params.id;
-    console.log(id);
+    // console.log(id);
     const staffList = await Staff.find({ regBy: id, role: "User" });
     res.status(200).json(staffList);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+    // console.log(error);
+  }
+};
+
+//Display by registerd user
+const loadByReg = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const list = await TimeSlot.find({ regBy: id });
+    res.status(200).json(list);
   } catch (error) {
     res.status(500).json({ msg: error });
     console.log(error);
   }
 };
+//Time Slot
+const createTimeSlots = async (req, res) => {
+  const user = req.params.id;
 
-const createTimeSlots = async (req, res) => {};
+  const slot = new TimeSlot({
+    date: req.body.date,
+    time: req.body.time,
+    regBy: user,
+  });
+  try {
+    const createSlot = await slot.save();
+    res.status(201).json({ timeSlot: createSlot });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+};
 
 const updateUser = (req, res) => {
   res.send("user updated!!!");
 };
 
-const deleteUser = async (req, res) => {
+//Delete Time Slots
+const deleteSlot = async (req, res) => {
+  const id = req.params.id;
   try {
-    const { id: userId } = req.params;
-    const delUser = await User.findOneAndDelete();
-  } catch (error) {}
+    const delSlot = await TimeSlot.findOneAndDelete({ _id: id });
+    res.status(201).json({ deletedSlot: delSlot });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+};
+
+//Load Slots By Registered Id
+const loadSlot = async (req, res) => {
+  const id = req.params.regBy;
+  try {
+    const slots = await TimeSlot.find({ regBy: id });
+    res.status(201).json(slots);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 };
 
 module.exports = {
+  loadByReg,
+  TimeSlot,
   getLogin,
   addStaff,
   userSignUp,
   updateUser,
   getAllUsers,
-  deleteUser,
+  deleteSlot,
   staffList,
   createTimeSlots,
+  loadSlot,
 };

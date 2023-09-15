@@ -36,7 +36,7 @@ export class StaffComponent {
       this.datasource = new MatTableDataSource(this.usersList);
       this.datasource.paginator = this.paginator;
       this.datasource.sort = this.sort;
-      console.log(this.id);
+      // console.log(this.id);
     });
   }
 

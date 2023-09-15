@@ -19,16 +19,25 @@ export class CtsPopupComponent {
   addSlot = this.builder.group({
     date: this.builder.control('', Validators.required),
     time: this.builder.control('', Validators.required),
-    regBy: this.builder.control(sessionStorage.getItem('username')),
+    regBy: '',
   });
-  logId = sessionStorage.getItem('username');
+  logId = sessionStorage.getItem('user');
   proceedSlot() {
+    const dateValue = this.addSlot.value['date'] as string;
+    const dateObject = new Date(dateValue);
+    const formatDate = this.timeService.formatDate(dateObject);
+    this.addSlot.value['date'] = formatDate;
+    this.addSlot.value['regBy'] = sessionStorage.getItem('user');
+    console.log(this.addSlot);
+
     if (this.addSlot.valid) {
-      this.timeService.addSlot(this.addSlot.value).subscribe((res) => {
-        this.toast.success('Time&Date slot added Successful!');
-        this.route.navigate(['admin', this.logId, 'time-schedule']);
-        this.addSlot.reset();
-      });
+      this.timeService
+        .addSlot(this.logId, this.addSlot.value)
+        .subscribe((res) => {
+          this.toast.success('Time&Date slot added Successful!');
+          this.route.navigate(['admin', this.logId, 'time-schedule']);
+          this.addSlot.reset();
+        });
     } else {
       this.toast.warning('Pleas enter valid inputs!');
     }

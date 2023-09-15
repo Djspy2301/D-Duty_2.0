@@ -14,10 +14,10 @@ export class AdminDashboardComponent {
     private route: ActivatedRoute,
     private adminService: AdminServiceService
   ) {
-    this.route.params.subscribe((params) => {
-      const logId = params['id'];
-      console.log(logId);
-    });
+    // this.route.params.subscribe((params) => {
+    //   const logId = params['id'];
+    //   console.log(logId);
+    // });
   }
   id = this.adminService.getIdFromSessionStorage();
 }

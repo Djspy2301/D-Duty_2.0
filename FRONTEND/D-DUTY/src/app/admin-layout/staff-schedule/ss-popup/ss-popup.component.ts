@@ -33,5 +33,5 @@ export class SsPopupComponent {
 
   id = this.adminService.id;
 
-  displayedColumns: string[] = ['id', 'name', 'email', 'deg'];
+  displayedColumns: string[] = ['user', 'name', 'email', 'deg'];
 }

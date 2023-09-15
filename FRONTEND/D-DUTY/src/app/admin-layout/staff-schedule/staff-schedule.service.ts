@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class StaffScheduleService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'http://localhost:3000/dateTime';
+  private apiUrl = 'http://localhost:8000/api/v1/';
   getTimeSlots(id: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?regBy=${id}`);
+    return this.http.get<any[]>(`${this.apiUrl}admin/${id}/load-slots`);
   }
 }
