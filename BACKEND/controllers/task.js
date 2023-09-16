@@ -154,6 +154,66 @@ const loadSlot = async (req, res) => {
   }
 };
 
+//Add Staff To Slots
+const addToSlot = async (req, res) => {
+  const timeSlotId = req.params.id;
+  const staffDetail = req.body.staffDetail;
+
+  try {
+    const timeSlot = await TimeSlot.findById(timeSlotId);
+
+    if (!timeSlot) {
+      return res.status(404).json({ msg: "Time slot not found!!!" });
+    }
+
+    // console.log("Before Update:");
+    // console.log("timeSlot.staff:", timeSlot.staff);
+    // console.log("staff:", staffDetail);
+
+    if (typeof staffDetail !== "object" || Array.isArray(staffDetail)) {
+      return res.status(400).json({ msg: "staffDetail must be an object" });
+    }
+
+    const staffExists = timeSlot.staff.some((existingStaff) => {
+      return existingStaff._id.toString() === staffDetail._id.toString();
+    });
+
+    if (staffExists) {
+      return res
+        .status(400)
+        .json({ msg: "Staff detail already exists in the time slot" });
+    }
+
+    timeSlot.staff.push(staffDetail);
+
+    // console.log("After Update:");
+    // console.log("timeSlot.staff:", timeSlot.staff);
+
+    const updateTimeSlot = await timeSlot.save();
+    res.status(200).json(updateTimeSlot);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+    console.log(error);
+    // console.log(staff);
+  }
+};
+
+const loadSheduledStaff = async (req, res) => {
+  const slotId = req.params.id;
+  try {
+    const loadStaff = await TimeSlot.findOne({ _id: slotId });
+
+    if (!loadStaff) {
+      return res.status(404).json({ msg: "Time slot not found" });
+    }
+
+    res.status(201).json(loadStaff.staff);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+    console.log(error);
+  }
+};
+
 module.exports = {
   loadByReg,
   TimeSlot,
@@ -166,4 +226,6 @@ module.exports = {
   staffList,
   createTimeSlots,
   loadSlot,
+  addToSlot,
+  loadSheduledStaff,
 };

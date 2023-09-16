@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { SsService } from '../service/ss-service.service';
+import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { AdminServiceService } from '../../services/admin-service.service';
@@ -19,7 +20,9 @@ export class SsPopupComponent {
   ) {}
   datasource: any;
   usersList: any;
-
+  ngOnInit(): void {
+    this.displayAllotedStaff();
+  }
   addSlotPopup() {
     this.dialog.open(SchedulingStaffComponent, {
       enterAnimationDuration: '1000ms',
@@ -31,7 +34,19 @@ export class SsPopupComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  id = this.adminService.id;
+  id = this.ssService.slotValue;
 
-  displayedColumns: string[] = ['user', 'name', 'email', 'deg'];
+  displayAllotedStaff() {
+    this.ssService.getAllotedStaff().subscribe((res) => {
+      console.log(res);
+      this.usersList = res;
+      this.datasource = new MatTableDataSource(this.usersList);
+      this.datasource.paginator = this.paginator;
+      this.datasource.sort = this.sort;
+    });
+  }
+
+  displayedColumns: string[] = ['user', 'name', 'email', 'deg', 'action'];
+
+  deleteStaff(staff: string) {}
 }

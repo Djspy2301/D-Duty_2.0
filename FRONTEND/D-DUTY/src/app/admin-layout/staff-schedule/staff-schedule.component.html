@@ -2,7 +2,7 @@
   <mat-card>
     <mat-card-content class="card-container">
       <mat-card>
-        <mat-card-content (click)="viewSsPopup()" class="card">
+        <mat-card-content (click)="ssPopUp(slot._id)" class="card">
           <p>Date: {{ slot.date | date : "dd-MM-yyyy" }}</p>
           <p>Time: {{ slot.time }}</p>
         </mat-card-content>

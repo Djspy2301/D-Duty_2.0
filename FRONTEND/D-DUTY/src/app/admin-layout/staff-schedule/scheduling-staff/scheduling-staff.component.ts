@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SsService } from '../service/ss-service.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-scheduling-staff',
@@ -13,7 +14,8 @@ import { SsService } from '../service/ss-service.service';
 export class SchedulingStaffComponent {
   constructor(
     private adminService: AdminServiceService,
-    private scheduleService: SsService
+    private scheduleService: SsService,
+    private builder: FormBuilder
   ) {}
 
   id = this.adminService.id;
@@ -35,9 +37,13 @@ export class SchedulingStaffComponent {
     });
   }
   displayedColumns: string[] = ['user', 'name', 'email', 'deg', 'select'];
+
   proceedStaffScheduling(user: any) {
-    this.scheduleService.proceedSeduling(user).subscribe((res) => {
-      console.log('Selected staff members added to the database:', res);
-    });
+    // console.log(user);
+    this.scheduleService
+      .proceedSeduling({ staffDetail: user })
+      .subscribe((res) => {
+        //console.log('Selected staff members added to the database:', res);
+      });
   }
 }
