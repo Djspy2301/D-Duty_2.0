@@ -214,6 +214,41 @@ const loadSheduledStaff = async (req, res) => {
   }
 };
 
+//Delete Sheduled Staff
+const deleteSheduledStaff = async (req, res) => {
+  const staffId = req.params.id;
+  const timeSlotId = req.params.timeslotId;
+  try {
+    const timeSlot = await TimeSlot.findById(timeSlotId);
+
+    if (!timeSlot) {
+      return res.status(404).json({ msg: "Time slot not found!!!" });
+    }
+
+    // Find the index of the staff member with the given staffId in the staff array
+    const staffIndex = timeSlot.staff.findIndex(
+      (staff) => staff._id.toString() === staffId
+    );
+
+    // Check if staff member was found
+    if (staffIndex === -1) {
+      return res
+        .status(404)
+        .json({ msg: "Staff member not found in the time slot" });
+    }
+
+    // Remove the staff member from the staff array
+    timeSlot.staff.splice(staffIndex, 1);
+
+    // Save the updated TimeSlot document
+    const updatedTimeSlot = await timeSlot.save();
+    res.status(200).json(updatedTimeSlot);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+    // console.log(error);
+  }
+};
+
 module.exports = {
   loadByReg,
   TimeSlot,
@@ -228,4 +263,5 @@ module.exports = {
   loadSlot,
   addToSlot,
   loadSheduledStaff,
+  deleteSheduledStaff,
 };

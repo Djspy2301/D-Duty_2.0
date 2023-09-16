@@ -22,14 +22,20 @@ export class SsService {
       `${this.apiUrl}admin/${this.slotValue}/load-sheduled-staff`
     );
   }
+
+  deleteAllotedStaff(input: any) {
+    return this.http.delete(
+      `${this.apiUrl}admin/${this.slotValue}/delete-sheduled-staff/${input}`
+    );
+  }
   viewSsPopup(slot: string) {
     this.slotValue = slot;
     console.log('slotValue:', this.slotValue);
     this.dialog.open(SsPopupComponent, {
       enterAnimationDuration: '1000ms',
       exitAnimationDuration: '500ms',
-      width: '50%',
-      height: '67%',
+      width: '70%',
+      height: '70%',
     });
   }
 }

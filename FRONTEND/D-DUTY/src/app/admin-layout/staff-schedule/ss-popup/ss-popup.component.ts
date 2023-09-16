@@ -48,5 +48,16 @@ export class SsPopupComponent {
 
   displayedColumns: string[] = ['user', 'name', 'email', 'deg', 'action'];
 
-  deleteStaff(staff: string) {}
+  fetchAllotedStaff() {
+    this.ssService.getAllotedStaff().subscribe((res) => {
+      this.datasource = res;
+    });
+  }
+
+  deleteStaff(staff: string) {
+    console.log(staff);
+    this.ssService.deleteAllotedStaff(staff).subscribe(() => {
+      this.fetchAllotedStaff();
+    });
+  }
 }

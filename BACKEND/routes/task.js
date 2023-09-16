@@ -9,6 +9,7 @@ const {
   loadSlot,
   addToSlot,
   loadSheduledStaff,
+  deleteSheduledStaff,
 } = require("../controllers/task");
 
 const exp = require("express");
@@ -24,5 +25,7 @@ router.route("/admin/delete-slot/:id").delete(deleteSlot);
 router.route("/admin/:regBy/load-slots").get(loadSlot);
 router.route("/admin/:id/add-to-slot").put(addToSlot);
 router.route("/admin/:id/load-sheduled-staff").get(loadSheduledStaff);
-
+router
+  .route("/admin/:timeslotId/delete-sheduled-staff/:id")
+  .delete(deleteSheduledStaff);
 module.exports = router;
