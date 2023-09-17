@@ -11,10 +11,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./staff.component.css'],
 })
 export class StaffComponent {
-  constructor(
-    private adminService: AdminServiceService,
-    private route: ActivatedRoute
-  ) {
+  constructor(private adminService: AdminServiceService) {
     this.loadUsers();
   }
 

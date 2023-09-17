@@ -10,11 +10,14 @@ const {
   addToSlot,
   loadSheduledStaff,
   deleteSheduledStaff,
+  loadDuty,
+  getId,
 } = require("../controllers/task");
 
 const exp = require("express");
 const router = exp.Router();
 
+router.route("/:user/get-id").get(getId);
 router.route("/sign-up").post(userSignUp);
 router.route("/log-in/").post(getLogin);
 router.route("/:id/add-staff").post(addStaff);
@@ -28,4 +31,5 @@ router.route("/admin/:id/load-sheduled-staff").get(loadSheduledStaff);
 router
   .route("/admin/:timeslotId/delete-sheduled-staff/:id")
   .delete(deleteSheduledStaff);
+router.route("/user/:id/load-duty").get(loadDuty);
 module.exports = router;

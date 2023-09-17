@@ -23,6 +23,7 @@ import { CtsPopupComponent } from './admin-layout/time-schedule/cts-popup/cts-po
 import { StaffScheduleComponent } from './admin-layout/staff-schedule/staff-schedule.component';
 import { SsPopupComponent } from './admin-layout/staff-schedule/ss-popup/ss-popup.component';
 import { SchedulingStaffComponent } from './admin-layout/staff-schedule/scheduling-staff/scheduling-staff.component';
+import { DutyComponent } from './user-layout/duty/duty.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SchedulingStaffComponent } from './admin-layout/staff-schedule/scheduli
     UserLayoutComponent,
     UserHeaderComponent,
     UserDashboardComponent,
+    DutyComponent,
   ],
   imports: [
     BrowserModule,

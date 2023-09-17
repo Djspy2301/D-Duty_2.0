@@ -56,16 +56,19 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.getByCode(this.loginForm.value).subscribe(
         (res: any) => {
-          sessionStorage.setItem('user', res.user);
-          sessionStorage.setItem('name', res.name);
-          sessionStorage.setItem('role', res.role);
-          sessionStorage.setItem('org', res.org);
-
           const id = res.user;
           this.toast.success('Login Successfully!');
           if (res.role === 'Admin') {
+            sessionStorage.setItem('user', res.user);
+            sessionStorage.setItem('name', res.name);
+            sessionStorage.setItem('role', res.role);
+            sessionStorage.setItem('org', res.org);
             this.route.navigate(['admin', id, 'dashboard']);
           } else if (res.role === 'User') {
+            sessionStorage.setItem('user', res.user);
+            sessionStorage.setItem('name', res.name);
+            sessionStorage.setItem('role', res.role);
+            sessionStorage.setItem('regBy', res.regBy);
             this.route.navigate(['user', id, 'dashboard']);
           }
         },

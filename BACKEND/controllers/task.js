@@ -4,6 +4,32 @@ const Staff = require("../models/staff");
 const TimeSlot = require("../models/timeSlot");
 const CryptoJS = require("crypto-js");
 
+//Get _id of Users/Staff
+const getId = async (req, res) => {
+  const userId = req.params.user;
+
+  try {
+    const user = await User.findOne({ user: userId });
+
+    const staff = await Staff.findOne({ user: userId });
+
+    if (!user && !staff) {
+      return res.status(401).json("Wrong Credentials!");
+    }
+    let id;
+    if (user) {
+      id = user._id;
+    } else if (staff) {
+      id = staff._id;
+    }
+    res.status(200).json(id);
+  } catch (error) {
+    res.status(500).json(error);
+    console.log(error);
+  }
+};
+
+//Login
 const getLogin = async (req, res) => {
   try {
     const user = await User.findOne({ user: req.body.user });
@@ -82,10 +108,6 @@ const addStaff = async (req, res) => {
   }
 };
 
-const getAllUsers = (req, res) => {
-  res.send("All Users Table!!!");
-};
-
 //Displaying Staff List
 const staffList = async (req, res) => {
   // const query = {adminId: hostId}
@@ -111,6 +133,7 @@ const loadByReg = async (req, res) => {
     console.log(error);
   }
 };
+
 //Time Slot
 const createTimeSlots = async (req, res) => {
   const user = req.params.id;
@@ -126,10 +149,6 @@ const createTimeSlots = async (req, res) => {
   } catch (error) {
     res.status(500).json({ msg: error });
   }
-};
-
-const updateUser = (req, res) => {
-  res.send("user updated!!!");
 };
 
 //Delete Time Slots
@@ -249,14 +268,34 @@ const deleteSheduledStaff = async (req, res) => {
   }
 };
 
+//Load Duty
+const loadDuty = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const duties = await TimeSlot.find({ "staff._id": id });
+
+    // Map duties to include only the specific staff object that matches the 'id'
+    const filteredDuties = duties.map((duty) => {
+      const specificStaff = duty.staff.find((staffObj) => staffObj._id == id);
+      return {
+        ...duty.toObject(),
+        staff: specificStaff,
+      };
+    });
+    res.status(200).json(filteredDuties);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+    console.log(error);
+  }
+};
 module.exports = {
+  getId,
   loadByReg,
   TimeSlot,
   getLogin,
   addStaff,
   userSignUp,
-  updateUser,
-  getAllUsers,
   deleteSlot,
   staffList,
   createTimeSlots,
@@ -264,4 +303,5 @@ module.exports = {
   addToSlot,
   loadSheduledStaff,
   deleteSheduledStaff,
+  loadDuty,
 };

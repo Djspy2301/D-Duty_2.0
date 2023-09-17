@@ -13,6 +13,7 @@ import { NoPageComponent } from './no-page/no-page.component';
 import { StaffComponent } from './admin-layout/staff/staff.component';
 import { TimeScheduleComponent } from './admin-layout/time-schedule/time-schedule.component';
 import { StaffScheduleComponent } from './admin-layout/staff-schedule/staff-schedule.component';
+import { DutyComponent } from './user-layout/duty/duty.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: UserDashboardComponent,
+      },
+      {
+        path: 'duty',
+        component: DutyComponent,
       },
     ],
     canActivate: [UserAuthGuard],

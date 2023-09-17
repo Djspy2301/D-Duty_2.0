@@ -14,8 +14,8 @@ export class UserHeaderComponent {
 
   logout() {
     sessionStorage.removeItem('role');
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('org');
+    sessionStorage.removeItem('user');
+    sessionStorage.removeItem('regBy');
     sessionStorage.removeItem('name');
     this.toast.success('Logout Successfully!');
     this.route.navigate(['login']);

@@ -20,7 +20,7 @@ export class AdminHeaderComponent {
   logout() {
     sessionStorage.removeItem('role');
     sessionStorage.removeItem('name');
-    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('user');
     sessionStorage.removeItem('org');
     this.toast.success('Logout Successfully!');
     this.route.navigate(['login']);
