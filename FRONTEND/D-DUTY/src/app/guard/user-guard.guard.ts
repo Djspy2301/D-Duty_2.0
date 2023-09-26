@@ -8,7 +8,7 @@ export const UserAuthGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
   const toast = inject(ToastrService);
   const userRole = authService.getUserRole();
-  console.log(userRole);
+
   if (userRole === 'User') {
     return true;
   } else if (userRole !== 'Admin') {

@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 80vh;
+  width: 95%;
+  margin: 40px auto;
+}
+mat-grid-tile {
+  background: lightblue;
+}
+
+/* profile img */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content img {
+  width: 63%;
+  height: 70%;
+}

@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
   <div class="left">
     <span><img src="assets/icon.jpg" alt="" /></span>
-    <button id="orgName" mat-button routerLink="/">{{ orgName }}</button>
+    <button id="orgName" mat-button [routerLink]="['/admin', id, 'profile']">
+      {{ orgName }}
+    </button>
   </div>
 
   <span class="spacer"></span>

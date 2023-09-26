@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../user-service/user.service';
 
 @Component({
   selector: 'app-user-header',
@@ -8,7 +9,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./user-header.component.css'],
 })
 export class UserHeaderComponent {
-  constructor(private route: Router, private toast: ToastrService) {}
+  constructor(
+    private userService: UserService,
+    private route: Router,
+    private toast: ToastrService
+  ) {}
 
   name = sessionStorage.getItem('name');
 
@@ -24,4 +29,6 @@ export class UserHeaderComponent {
   getIdFromSessionStorage() {
     return sessionStorage.getItem('username') || '';
   }
+
+  id = this.userService.getIdByUserLogin();
 }

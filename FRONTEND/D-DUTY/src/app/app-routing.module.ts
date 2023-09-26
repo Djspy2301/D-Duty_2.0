@@ -14,6 +14,7 @@ import { StaffComponent } from './admin-layout/staff/staff.component';
 import { TimeScheduleComponent } from './admin-layout/time-schedule/time-schedule.component';
 import { StaffScheduleComponent } from './admin-layout/staff-schedule/staff-schedule.component';
 import { DutyComponent } from './user-layout/duty/duty.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -37,6 +38,7 @@ const routes: Routes = [
       },
       { path: 'time-schedule', component: TimeScheduleComponent },
       { path: 'staff-schedule', component: StaffScheduleComponent },
+      { path: 'profile', component: ProfileComponent },
     ],
     canActivate: [AdminAuthGuard],
   },
@@ -52,6 +54,7 @@ const routes: Routes = [
         path: 'duty',
         component: DutyComponent,
       },
+      { path: 'profile', component: ProfileComponent },
     ],
     canActivate: [UserAuthGuard],
   },

@@ -289,6 +289,26 @@ const loadDuty = async (req, res) => {
     console.log(error);
   }
 };
+
+//Profile Admin/User
+const getProfile = async (req, res) => {
+  const userId = req.params.user;
+
+  try {
+    const user = await User.findOne({ user: userId });
+
+    const staff = await Staff.findOne({ user: userId });
+
+    if (!user && !staff) {
+      return res.status(401).json("Wrong Credentials!");
+    }
+
+    res.status(200).json(user || staff);
+  } catch (error) {
+    res.status(500).json(error);
+    console.log(error);
+  }
+};
 module.exports = {
   getId,
   loadByReg,
@@ -304,4 +324,5 @@ module.exports = {
   loadSheduledStaff,
   deleteSheduledStaff,
   loadDuty,
+  getProfile,
 };

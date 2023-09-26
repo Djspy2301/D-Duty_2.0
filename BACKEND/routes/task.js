@@ -12,6 +12,7 @@ const {
   deleteSheduledStaff,
   loadDuty,
   getId,
+  getProfile,
 } = require("../controllers/task");
 
 const exp = require("express");
@@ -32,4 +33,6 @@ router
   .route("/admin/:timeslotId/delete-sheduled-staff/:id")
   .delete(deleteSheduledStaff);
 router.route("/user/:id/load-duty").get(loadDuty);
+router.route("/:user/profile").get(getProfile);
+
 module.exports = router;

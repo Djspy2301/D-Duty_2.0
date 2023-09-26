@@ -1,11 +1,18 @@
 <mat-toolbar color="primary">
-    <img src="assets/icon.jpg" alt="">
-    <span class="spacer"></span>
-    <button mat-button routerLink="/">{{name}}</button>
-    <button mat-button [routerLink]="['/user', getIdFromSessionStorage(),'dashboard']">Dashboard</button>
-    <button (click)="logout()" mat-button>Logout</button>
-  </mat-toolbar>
-  
-  <div class="content" style="width: 100%; display: block;" role="main">
-    <router-outlet></router-outlet>
-  </div>
+  <img src="assets/icon.jpg" alt="" />
+  <span class="spacer"></span>
+  <button mat-button [routerLink]="['/user', id, 'profile']">
+    {{ name }}
+  </button>
+  <button
+    mat-button
+    [routerLink]="['/user', getIdFromSessionStorage(), 'dashboard']"
+  >
+    Dashboard
+  </button>
+  <button (click)="logout()" mat-button>Logout</button>
+</mat-toolbar>
+
+<div class="content" style="width: 100%; display: block" role="main">
+  <router-outlet></router-outlet>
+</div>

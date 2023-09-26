@@ -19,4 +19,8 @@ export class UserService {
   getDutyById(userId: any) {
     return this.http.get(`${this.apiUrl}user/${userId}/load-duty`);
   }
+
+  getProfileByUser(user: any) {
+    return this.http.get(`${this.apiUrl}${user}/profile`);
+  }
 }

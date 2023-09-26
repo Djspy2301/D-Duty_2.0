@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-grid-list cols="2" rowHeight="6:1">
+    <mat-grid-tile class="profile_img" rowspan="3">
+      <div class="box">
+        <div class="content">
+          <img src="/assets/ProfileAvtar.jpg" alt="" />
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="profile" rowspan="5">
+      <div class="data">
+        <div class="greet">
+          <div *ngIf="role === 'Admin'; else userBlock">
+            <h1>Welcome, Admin!</h1>
+          </div>
+          <ng-template #userBlock>
+            <h1>Welcome, User!</h1>
+          </ng-template>
+        </div>
+        <div class="info">
+          <h3>Username<span>:</span>{{ user.user }}</h3>
+          <h3>Name<span>:</span>{{ user.name }}</h3>
+          <h3>Email-ID<span>:</span>{{ user.email }}</h3>
+          <h3>Role<span>:</span>{{ user.role }}</h3>
+          <div *ngIf="role === 'Admin'; else userSide">
+            <h3>Organization<span>:</span>{{ user.org }}</h3>
+          </div>
+          <ng-template #userSide>
+            <h3>Degignation<span>:</span>{{ user.deg }}</h3>
+            <h3>Registered By<span>:</span>{{ user.regBy }}</h3>
+          </ng-template>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
