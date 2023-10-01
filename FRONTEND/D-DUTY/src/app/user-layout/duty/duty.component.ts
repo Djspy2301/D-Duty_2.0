@@ -10,10 +10,16 @@ import { UserService } from '../user-service/user.service';
   styleUrls: ['./duty.component.css'],
 })
 export class DutyComponent {
+  [x: string]: any;
   constructor(private userService: UserService) {}
 
   datasource: any;
   usersList: any;
+  user = sessionStorage.getItem('user');
+  data: any;
+  toggleState: any;
+  reportIssue: string = 'There is an Issue';
+  schedular: string = '';
 
   ngOnInit(): void {
     this.getIdOfUser();
@@ -41,8 +47,19 @@ export class DutyComponent {
     });
   }
 
-  displayedColumns: string[] = ['user', 'name', 'email', 'deg', 'date', 'time'];
+  displayedColumns: string[] = [
+    'name',
+    'regBy',
+    'email',
+    'deg',
+    'date',
+    'time',
+  ];
 
+  onReportClick() {
+    console.log('Scheduler:', this.schedular);
+    console.log('Reported issue:', this.reportIssue);
+  }
   transform(time: string): string {
     // Assuming time is in the format 'HH:mm'
     const parts = time.split(':');

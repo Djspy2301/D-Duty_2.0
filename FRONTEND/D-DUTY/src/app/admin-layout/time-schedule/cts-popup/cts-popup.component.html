@@ -2,9 +2,15 @@
   <form class="example-form" [formGroup]="addSlot" (ngSubmit)="proceedSlot()">
     <mat-label>Choose a date & Time</mat-label>
     <mat-form-field class="example-full-width">
-      <mat-label class="text">Time</mat-label>
-      <input class="in" type="time" matInput formControlName="time" />
+      <mat-label class="text">In-Time</mat-label>
+      <input class="in" type="time" matInput formControlName="inTime" />
     </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label class="text">Out-Time</mat-label>
+      <input class="in" type="time" matInput formControlName="outTime" />
+    </mat-form-field>
+
     <input
       class="in"
       matInput

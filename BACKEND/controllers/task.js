@@ -99,6 +99,7 @@ const addStaff = async (req, res) => {
     deg: req.body.deg,
     regBy: id,
     role: req.body.role,
+    alert: "false",
   });
   try {
     const savedStaff = await newStaff.save();
@@ -140,7 +141,8 @@ const createTimeSlots = async (req, res) => {
 
   const slot = new TimeSlot({
     date: req.body.date,
-    time: req.body.time,
+    inTime: req.body.inTime,
+    outTime: req.body.outTime,
     regBy: user,
   });
   try {
@@ -178,6 +180,12 @@ const addToSlot = async (req, res) => {
   const timeSlotId = req.params.id;
   const staffDetail = req.body.staffDetail;
 
+  const updatedStaffDetail = {
+    ...staffDetail,
+    slotId: timeSlotId,
+    alert: false,
+  };
+
   try {
     const timeSlot = await TimeSlot.findById(timeSlotId);
 
@@ -189,12 +197,15 @@ const addToSlot = async (req, res) => {
     // console.log("timeSlot.staff:", timeSlot.staff);
     // console.log("staff:", staffDetail);
 
-    if (typeof staffDetail !== "object" || Array.isArray(staffDetail)) {
+    if (
+      typeof updatedStaffDetail !== "object" ||
+      Array.isArray(updatedStaffDetail)
+    ) {
       return res.status(400).json({ msg: "staffDetail must be an object" });
     }
 
     const staffExists = timeSlot.staff.some((existingStaff) => {
-      return existingStaff._id.toString() === staffDetail._id.toString();
+      return existingStaff._id.toString() === updatedStaffDetail._id.toString();
     });
 
     if (staffExists) {
@@ -203,7 +214,7 @@ const addToSlot = async (req, res) => {
         .json({ msg: "Staff detail already exists in the time slot" });
     }
 
-    timeSlot.staff.push(staffDetail);
+    timeSlot.staff.push(updatedStaffDetail);
 
     // console.log("After Update:");
     // console.log("timeSlot.staff:", timeSlot.staff);
@@ -309,6 +320,7 @@ const getProfile = async (req, res) => {
     console.log(error);
   }
 };
+
 module.exports = {
   getId,
   loadByReg,

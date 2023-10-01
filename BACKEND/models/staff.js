@@ -32,6 +32,7 @@ const StaffSchema = new mongoose.Schema(
     },
     role: { type: String, required: true },
     regBy: { type: String, required: true },
+    alert: { type: Boolean, required: true },
   },
   { timestamps: true }
 );

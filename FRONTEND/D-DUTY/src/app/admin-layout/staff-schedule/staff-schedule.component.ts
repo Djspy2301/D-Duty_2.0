@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { StaffScheduleService } from './staff-schedule.service';
 import { AdminServiceService } from '../services/admin-service.service';
-import { MatDialog } from '@angular/material/dialog';
-import { SsPopupComponent } from './ss-popup/ss-popup.component';
 import { SsService } from './service/ss-service.service';
 
 @Component({

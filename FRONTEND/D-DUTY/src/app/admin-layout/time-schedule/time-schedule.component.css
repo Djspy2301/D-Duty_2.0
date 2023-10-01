@@ -32,3 +32,7 @@ mat-card-content {
   width: 50%;
   margin-top: 20px; /* Optional: Add some spacing between the card and the table */
 }
+
+span {
+  margin: 0px 10px;
+}

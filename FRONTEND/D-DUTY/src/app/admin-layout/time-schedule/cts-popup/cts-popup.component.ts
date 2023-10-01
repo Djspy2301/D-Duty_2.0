@@ -18,7 +18,8 @@ export class CtsPopupComponent {
   ) {}
   addSlot = this.builder.group({
     date: this.builder.control('', Validators.required),
-    time: this.builder.control('', Validators.required),
+    inTime: this.builder.control('', Validators.required),
+    outTime: this.builder.control('', Validators.required),
     regBy: '',
   });
   logId = sessionStorage.getItem('user');
