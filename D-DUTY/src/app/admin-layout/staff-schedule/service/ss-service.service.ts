@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SsPopupComponent } from '../ss-popup/ss-popup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,5 +38,9 @@ export class SsService {
       width: '70%',
       height: '70%',
     });
+  }
+
+  getTimeSlots(id: any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}admin/${id}/load-slots`);
   }
 }

@@ -3,7 +3,6 @@ import { SsService } from '../service/ss-service.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { AdminServiceService } from '../../services/admin-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SchedulingStaffComponent } from '../scheduling-staff/scheduling-staff.component';
 
@@ -13,11 +12,7 @@ import { SchedulingStaffComponent } from '../scheduling-staff/scheduling-staff.c
   styleUrls: ['./ss-popup.component.css'],
 })
 export class SsPopupComponent {
-  constructor(
-    private ssService: SsService,
-    private adminService: AdminServiceService,
-    private dialog: MatDialog
-  ) {}
+  constructor(private ssService: SsService, private dialog: MatDialog) {}
   datasource: any;
   usersList: any;
   ngOnInit(): void {
@@ -30,12 +25,11 @@ export class SsPopupComponent {
       width: '85%',
     });
   }
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   id = this.ssService.slotValue;
-
+  // THIS
   displayAllotedStaff() {
     this.ssService.getAllotedStaff().subscribe((res) => {
       console.log(res);

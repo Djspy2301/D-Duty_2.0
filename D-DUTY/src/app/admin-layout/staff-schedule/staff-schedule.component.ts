@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { StaffScheduleService } from './staff-schedule.service';
+
 import { AdminServiceService } from '../services/admin-service.service';
 import { SsService } from './service/ss-service.service';
+import { SsPopupComponent } from './ss-popup/ss-popup.component';
 
 @Component({
   selector: 'app-staff-schedule',
@@ -12,7 +13,6 @@ export class StaffScheduleComponent {
   timeSlots: any[] = [];
 
   constructor(
-    private staffScheduleService: StaffScheduleService,
     private ssService: SsService,
     private adminService: AdminServiceService
   ) {}
@@ -22,7 +22,7 @@ export class StaffScheduleComponent {
   }
 
   loadTimeSlots() {
-    this.staffScheduleService.getTimeSlots(this.id).subscribe((data: any[]) => {
+    this.ssService.getTimeSlots(this.id).subscribe((data: any[]) => {
       this.timeSlots = data;
     });
   }

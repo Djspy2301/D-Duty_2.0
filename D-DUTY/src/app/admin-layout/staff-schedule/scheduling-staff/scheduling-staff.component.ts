@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SsService } from '../service/ss-service.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-scheduling-staff',
@@ -15,7 +15,7 @@ export class SchedulingStaffComponent {
   constructor(
     private adminService: AdminServiceService,
     private scheduleService: SsService,
-    private builder: FormBuilder
+    private toast: ToastrService
   ) {}
 
   id = this.adminService.id;
@@ -43,7 +43,7 @@ export class SchedulingStaffComponent {
     this.scheduleService
       .proceedSeduling({ staffDetail: user })
       .subscribe((res) => {
-        //console.log('Selected staff members added to the database:', res);
+        this.toast.success('staff added successful!');
       });
   }
 }
